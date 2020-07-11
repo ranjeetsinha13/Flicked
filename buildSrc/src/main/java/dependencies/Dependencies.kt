@@ -8,4 +8,9 @@ object Dependencies {
         "org.jetbrains.kotlinx:kotlinx-coroutines-core:${BuildDependenciesVersion.COROUTINES}"
     const val CONSTRAINT_LAYOUT =
         "androidx.constraintlayout:constraintlayout:${BuildDependenciesVersion.CONSTRAINT_LAYOUT}"
+
+    const val CRASHLYTICS =
+        "com.google.firebase:firebase-crashlytics:${BuildDependenciesVersion.CRASHLYTICS}"
+    const val FIREBASE_ANALYTICS =
+        "com.google.firebase:firebase-analytics-ktx:${BuildDependenciesVersion.FIREBASE}"
 }

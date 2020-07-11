@@ -12,7 +12,7 @@ interface BuildType {
 
 object BuildTypeDebug : BuildType {
     override val isMinifyEnabled = false
-    override val isCrashlyticsEnabled = false
+    override val isCrashlyticsEnabled = true
     override val isTestCoverageEnabled = true
 
     const val applicationIdSuffix = ".debug"

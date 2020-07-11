@@ -9,4 +9,8 @@ object BuildDependenciesVersion {
 
     const val JUNIT = "4.12"
     const val MOCKITO = "2.2.0"
+
+    // Google
+    const val CRASHLYTICS = "17.1.1"
+    const val FIREBASE = "17.4.4"
 }

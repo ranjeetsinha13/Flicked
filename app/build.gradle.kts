@@ -12,6 +12,8 @@ import dependencies.AnnotationProcessorDependencies.DATABINDING
 import dependencies.Dependencies.APPCOMPAT
 import dependencies.Dependencies.CONSTRAINT_LAYOUT
 import dependencies.Dependencies.COROUTINES
+import dependencies.Dependencies.CRASHLYTICS
+import dependencies.Dependencies.FIREBASE_ANALYTICS
 import dependencies.Dependencies.KOTLIN
 import dependencies.Dependencies.MATERIAL
 import extensions.addTestsDependencies
@@ -19,6 +21,8 @@ import extensions.buildConfigBooleanField
 
 plugins {
     id(BuildPlugins.ANDROID_APPLICATION)
+    id(BuildPlugins.GOOGLE_SERVICES)
+    id(BuildPlugins.CRASHLYTICS)
     kotlin(BuildPlugins.KOTLIN_ANDROID)
     kotlin(BuildPlugins.KOTLIN_ANDROID_EXTENSIONS)
     kotlin(BuildPlugins.KOTLIN_KAPT)
@@ -89,6 +93,9 @@ dependencies {
     implementation(MATERIAL)
     implementation(COROUTINES)
     implementation(CONSTRAINT_LAYOUT)
+
+    implementation(FIREBASE_ANALYTICS)
+    implementation(CRASHLYTICS)
 
     // TODO This should be moved to ui module
     kapt(DATABINDING)
