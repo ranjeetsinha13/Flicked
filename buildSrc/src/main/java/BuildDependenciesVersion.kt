@@ -13,4 +13,7 @@ object BuildDependenciesVersion {
     // Google
     const val CRASHLYTICS = "17.1.1"
     const val FIREBASE = "17.4.4"
+
+    // Plugin versions
+    const val KTLINT = "0.37.2"
 }
