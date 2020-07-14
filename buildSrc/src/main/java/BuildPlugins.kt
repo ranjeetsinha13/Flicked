@@ -8,4 +8,8 @@ object BuildPlugins {
 
     const val GIT_HOOKS = "plugins.git-hooks"
     const val KTLINT = "plugins.ktlint"
+
+    const val JACOCO_REPORT = "plugins.jacoco-report"
+
+    const val JACOCO = "jacoco"
 }

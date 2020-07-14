@@ -16,4 +16,7 @@ object BuildDependenciesVersion {
 
     // Plugin versions
     const val KTLINT = "0.37.2"
+
+    const val JACOCO = "0.8.5"
 }
+

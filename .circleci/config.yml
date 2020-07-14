@@ -1,0 +1,37 @@
+# CircleCI configuration file
+# https://circleci.com/docs/2.0/language-android
+version: 2.1
+orbs:
+  codecov: codecov/codecov@1.0.5
+jobs:
+  build:
+    working_directory: ~/flicked
+    docker:
+      - image: circleci/android:api-28
+    environment:
+      GRADLE_OPTS: -Xmx4g -Dorg.gradle.daemon=false
+      JVM_OPTS: -Xmx4g
+    steps:
+      - checkout
+      - run: echo $GOOGLE_SERVICE_JSON | base64 --decode >> /home/circleci/flicked/app/google-services.json
+      - run:
+          name: Run Ktlint
+          command: ./gradlew ktlint
+      - run:
+          name: Run Lint
+          command: ./gradlew lintDebug
+      - run:
+          name: Run Unit Tests
+          command: ./gradlew testDebugUnitTest
+      - run:
+          name: Generate Code Coverage
+          command: ./gradlew jacocoAndroidTestReport
+      - run:
+          name: Verify Code Coverage
+          command: ./gradlew jacocoAndroidCoverageVerification
+      - codecov/upload:
+          flags: unittest
+          conf: .codecov/config.yml
+      - run:
+          command: ./gradlew build
+

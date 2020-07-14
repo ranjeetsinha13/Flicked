@@ -6,6 +6,7 @@ import BuildAndroidConfig.TARGET_SDK_VERSION
 import BuildAndroidConfig.TEST_INSTRUMENTATION_RUNNER
 import BuildAndroidConfig.VERSION_CODE
 import BuildAndroidConfig.VERSION_NAME
+import BuildDependenciesVersion.JACOCO
 import BuildType.Companion.DEBUG
 import BuildType.Companion.RELEASE
 import dependencies.AnnotationProcessorDependencies.DATABINDING
@@ -19,6 +20,7 @@ import dependencies.Dependencies.MATERIAL
 import extensions.addTestsDependencies
 import extensions.buildConfigBooleanField
 
+
 plugins {
     id(BuildPlugins.ANDROID_APPLICATION)
     id(BuildPlugins.GOOGLE_SERVICES)
@@ -26,6 +28,8 @@ plugins {
     kotlin(BuildPlugins.KOTLIN_ANDROID)
     kotlin(BuildPlugins.KOTLIN_ANDROID_EXTENSIONS)
     kotlin(BuildPlugins.KOTLIN_KAPT)
+    id(BuildPlugins.JACOCO)
+    id(BuildPlugins.JACOCO_REPORT)
 }
 
 android {
@@ -84,6 +88,15 @@ android {
         isCheckAllWarnings = true
         isWarningsAsErrors = true
         isAbortOnError = true
+    }
+
+    jacoco {
+        buildToolsVersion(JACOCO)
+    }
+
+    testOptions {
+        unitTests.isIncludeAndroidResources = true
+        unitTests.isReturnDefaultValues = true
     }
 }
 
