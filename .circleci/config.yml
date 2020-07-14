@@ -29,6 +29,8 @@ jobs:
       - run:
           name: Verify Code Coverage
           command: ./gradlew jacocoAndroidCoverageVerification
+      - store_artifacts:
+          path: build/temp/artifacts
       - codecov/upload:
           flags: unittest
           conf: .codecov/config.yml

@@ -1,5 +1,9 @@
 package plugins
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 697eb51... circle ci integration
 tasks.withType<Test> {
     configure<JacocoTaskExtension> {
         isIncludeNoLocationClasses = true
@@ -49,8 +53,13 @@ private val executionDataTree = fileTree(project.buildDir) {
 fun JacocoReportsContainer.reports() {
     xml.isEnabled = true
     html.isEnabled = true
+<<<<<<< HEAD
     xml.destination = file("$buildDir/reports/jacoco/jacocoTestReport/jacocoTestReport.xml")
     html.destination = file("$buildDir/reports/jacoco/jacocoTestReport/html")
+=======
+    xml.destination = file("${buildDir}/reports/jacoco/jacocoTestReport/jacocoTestReport.xml")
+    html.destination = file("${buildDir}/reports/jacoco/jacocoTestReport/html")
+>>>>>>> 697eb51... circle ci integration
 }
 
 fun JacocoCoverageVerification.setDirectories() {
@@ -65,6 +74,10 @@ fun JacocoReport.setDirectories() {
     executionData.setFrom(executionDataTree)
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 697eb51... circle ci integration
 if (tasks.findByName("jacocoAndroidTestReport") == null) {
 
     tasks.register<JacocoReport>("jacocoAndroidTestReport") {

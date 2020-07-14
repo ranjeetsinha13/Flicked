@@ -16,6 +16,7 @@ object BuildDependenciesVersion {
 
     // Plugin versions
     const val KTLINT = "0.37.2"
+<<<<<<< HEAD
     const val JACOCO = "0.8.5"
     const val HILT = "2.28-alpha"
     const val HILT_COMPILER = "1.0.0-alpha01"
@@ -34,3 +35,9 @@ object BuildDependenciesVersion {
 
     const val TIMBER = "4.7.1"
 }
+=======
+
+    const val JACOCO = "0.8.5"
+}
+
+>>>>>>> 697eb51... circle ci integration
