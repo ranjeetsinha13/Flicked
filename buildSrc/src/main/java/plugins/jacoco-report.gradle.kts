@@ -1,6 +1,5 @@
 package plugins
 
-
 tasks.withType<Test> {
     configure<JacocoTaskExtension> {
         isIncludeNoLocationClasses = true
@@ -50,8 +49,8 @@ private val executionDataTree = fileTree(project.buildDir) {
 fun JacocoReportsContainer.reports() {
     xml.isEnabled = true
     html.isEnabled = true
-    xml.destination = file("${buildDir}/reports/jacoco/jacocoTestReport/jacocoTestReport.xml")
-    html.destination = file("${buildDir}/reports/jacoco/jacocoTestReport/html")
+    xml.destination = file("$buildDir/reports/jacoco/jacocoTestReport/jacocoTestReport.xml")
+    html.destination = file("$buildDir/reports/jacoco/jacocoTestReport/html")
 }
 
 fun JacocoCoverageVerification.setDirectories() {
@@ -65,7 +64,6 @@ fun JacocoReport.setDirectories() {
     classDirectories.setFrom(classDirectoriesTree)
     executionData.setFrom(executionDataTree)
 }
-
 
 if (tasks.findByName("jacocoAndroidTestReport") == null) {
 

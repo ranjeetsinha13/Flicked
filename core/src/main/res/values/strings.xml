@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="core_generic_error">Something went Wrong</string>
+
+    <string name="pref_theme_light" translatable="false">Light</string>
+    <string name="pref_theme_dark" translatable="false">Dark</string>
+    <string name="pref_theme_auto_battery" translatable="false">Auto-battery</string>
+    <string name="pref_theme_system" translatable="false">System</string>
+
+    <string name="pref_theme_key">pref_key_theme</string>
+</resources>

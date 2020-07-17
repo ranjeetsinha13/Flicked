@@ -1,8 +1,6 @@
 object BuildAndroidConfig {
     const val APPLICATION_ID = "com.rs.flicked"
 
-    const val BUILD_TOOLS_VERSION = "29.0.3"
-
     const val COMPILE_SDK_VERSION = 30
     const val MIN_SDK_VERSION = 21
     const val TARGET_SDK_VERSION = 30

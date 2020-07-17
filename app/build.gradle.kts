@@ -1,5 +1,4 @@
 import BuildAndroidConfig.APPLICATION_ID
-import BuildAndroidConfig.BUILD_TOOLS_VERSION
 import BuildAndroidConfig.COMPILE_SDK_VERSION
 import BuildAndroidConfig.MIN_SDK_VERSION
 import BuildAndroidConfig.TARGET_SDK_VERSION
@@ -10,16 +9,27 @@ import BuildDependenciesVersion.JACOCO
 import BuildType.Companion.DEBUG
 import BuildType.Companion.RELEASE
 import dependencies.AnnotationProcessorDependencies.DATABINDING
+import dependencies.AnnotationProcessorDependencies.HILT_COMPILER
+import dependencies.AnnotationProcessorDependencies.HILT_KAPT
+import dependencies.Dependencies.ACTIVITY_KTX
 import dependencies.Dependencies.APPCOMPAT
 import dependencies.Dependencies.CONSTRAINT_LAYOUT
 import dependencies.Dependencies.COROUTINES
 import dependencies.Dependencies.CRASHLYTICS
+import dependencies.Dependencies.DAGGER_HILT
 import dependencies.Dependencies.FIREBASE_ANALYTICS
+import dependencies.Dependencies.FRAGMENT_KTX
+import dependencies.Dependencies.HILT_VIEWMODEL
 import dependencies.Dependencies.KOTLIN
+import dependencies.Dependencies.LIFECYCLE_VIEWMODEL
 import dependencies.Dependencies.MATERIAL
+import dependencies.Dependencies.PREFERENCES
+import dependencies.Dependencies.RETROFIT
+import dependencies.Dependencies.TIMBER
 import extensions.addTestsDependencies
 import extensions.buildConfigBooleanField
-
+import extensions.buildConfigStringField
+import utils.getLocalProperty
 
 plugins {
     id(BuildPlugins.ANDROID_APPLICATION)
@@ -28,13 +38,13 @@ plugins {
     kotlin(BuildPlugins.KOTLIN_ANDROID)
     kotlin(BuildPlugins.KOTLIN_ANDROID_EXTENSIONS)
     kotlin(BuildPlugins.KOTLIN_KAPT)
+    id(BuildPlugins.HILT)
     id(BuildPlugins.JACOCO)
     id(BuildPlugins.JACOCO_REPORT)
 }
 
 android {
     compileSdkVersion(COMPILE_SDK_VERSION)
-    buildToolsVersion(BUILD_TOOLS_VERSION)
 
     defaultConfig {
         applicationId = APPLICATION_ID
@@ -98,20 +108,44 @@ android {
         unitTests.isIncludeAndroidResources = true
         unitTests.isReturnDefaultValues = true
     }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    buildTypes.forEach {
+        it.buildConfigStringField("TMDB_API_KEY", getLocalProperty("tmdb_api_key"))
+        it.buildConfigStringField("TMDB_BASE_URL", "https://api.themoviedb.org/3/")
+    }
 }
 
 dependencies {
+    implementation(project(BuildModules.CORE))
+    implementation(project(BuildModules.CORE_UI))
+    implementation(project(BuildModules.Features.HOME))
+    implementation(project(BuildModules.Features.ACCOUNT))
     implementation(KOTLIN)
     implementation(APPCOMPAT)
     implementation(MATERIAL)
+    implementation(PREFERENCES)
     implementation(COROUTINES)
     implementation(CONSTRAINT_LAYOUT)
-
+    implementation(DAGGER_HILT)
+    implementation(HILT_VIEWMODEL)
+    implementation(RETROFIT)
     implementation(FIREBASE_ANALYTICS)
     implementation(CRASHLYTICS)
 
+    implementation(LIFECYCLE_VIEWMODEL)
+    implementation(FRAGMENT_KTX)
+    implementation(ACTIVITY_KTX)
+    implementation(TIMBER)
+
     // TODO This should be moved to ui module
     kapt(DATABINDING)
+
+    kapt(HILT_KAPT)
+    kapt(HILT_COMPILER)
 
     addTestsDependencies()
 }

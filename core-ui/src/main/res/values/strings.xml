@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Flicked</string>
+
+    <string name="preference_theme_title">Theme</string>
+
+    <string name="light_theme_name">Light theme</string>
+    <string name="dark_theme_name">Dark theme</string>
+    <string name="auto_battery_name">Auto battery theme</string>
+    <string name="follow_system_name">System theme</string>
+
+    <string name="settings_activity_title">Settings</string>
+</resources>
