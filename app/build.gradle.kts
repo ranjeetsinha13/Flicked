@@ -31,6 +31,7 @@ import extensions.buildConfigBooleanField
 import extensions.buildConfigStringField
 import utils.getLocalProperty
 
+
 plugins {
     id(BuildPlugins.ANDROID_APPLICATION)
     id(BuildPlugins.GOOGLE_SERVICES)

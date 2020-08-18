@@ -24,6 +24,7 @@ object PluginsVersions {
     const val HILT = "2.28-alpha"
 }
 
+
 dependencies {
     implementation("com.android.tools.build:gradle:$GRADLE_ANDROID")
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:$KOTLIN")
