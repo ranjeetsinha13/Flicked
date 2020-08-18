@@ -16,8 +16,8 @@ plugins {
 }
 
 object PluginsVersions {
-    const val GRADLE_ANDROID = "3.6.3"
-    const val KOTLIN = "1.3.72"
+    const val GRADLE_ANDROID = "4.0.0"
+    const val KOTLIN = "1.4.0"
     const val GRADLE_CRASHLYTICS = "2.2.0"
     const val GOOGLE_SERVICES = "4.3.3"
     const val JACOCO = "0.8.5"

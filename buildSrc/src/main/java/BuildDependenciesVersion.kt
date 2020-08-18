@@ -1,6 +1,6 @@
 object BuildDependenciesVersion {
 
-    const val KOTLIN = "1.3.61"
+    const val KOTLIN = "1.4.0"
     const val APPCOMPAT = "1.1.0"
     const val MATERIAL = "1.2.0"
     const val COROUTINES = "1.3.3"
