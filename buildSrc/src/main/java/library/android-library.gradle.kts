@@ -40,10 +40,6 @@ android {
         isAbortOnError = true
     }
 
-    jacoco {
-        buildToolsVersion(BuildDependenciesVersion.JACOCO)
-    }
-
     testOptions {
         unitTests.isIncludeAndroidResources = true
         unitTests.isReturnDefaultValues = true

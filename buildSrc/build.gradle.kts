@@ -16,14 +16,13 @@ plugins {
 }
 
 object PluginsVersions {
-    const val GRADLE_ANDROID = "4.0.0"
+    const val GRADLE_ANDROID = "4.1.0"
     const val KOTLIN = "1.4.0"
     const val GRADLE_CRASHLYTICS = "2.2.0"
     const val GOOGLE_SERVICES = "4.3.3"
     const val JACOCO = "0.8.5"
     const val HILT = "2.28-alpha"
 }
-
 
 dependencies {
     implementation("com.android.tools.build:gradle:$GRADLE_ANDROID")

@@ -5,7 +5,6 @@ import BuildAndroidConfig.TARGET_SDK_VERSION
 import BuildAndroidConfig.TEST_INSTRUMENTATION_RUNNER
 import BuildAndroidConfig.VERSION_CODE
 import BuildAndroidConfig.VERSION_NAME
-import BuildDependenciesVersion.JACOCO
 import BuildType.Companion.DEBUG
 import BuildType.Companion.RELEASE
 import dependencies.AnnotationProcessorDependencies.DATABINDING
@@ -76,6 +75,9 @@ android {
 
             buildConfigBooleanField("ENABLE_CRASHLYTICS", BuildTypeDebug.isCrashlyticsEnabled)
         }
+        buildFeatures {
+            dataBinding = true
+        }
     }
 
     java {
@@ -84,10 +86,6 @@ android {
     }
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
-    }
-
-    dataBinding {
-        isEnabled = true
     }
 
     androidExtensions {
@@ -99,10 +97,6 @@ android {
         isCheckAllWarnings = true
         isWarningsAsErrors = true
         isAbortOnError = true
-    }
-
-    jacoco {
-        buildToolsVersion(JACOCO)
     }
 
     testOptions {
